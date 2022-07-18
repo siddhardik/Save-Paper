@@ -1,3 +1,5 @@
+
+
 // Tooltip Initialization
 
 var tooltipTriggerList = [].slice.call(
@@ -62,6 +64,7 @@ function showNotes() {
                         <p class="card-text"> ${note_object.text}</p>
                         <div class="line">
                         <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-danger del-btn" data-bs-toggle="tooltip" data-bs-placement="right" title=" will be deleted Permanently ">Delete Note</button>
+                        <button id="${index}"onclick="editNote(this.id)" class="btn btn-light del-btn mr-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit">🖋️</button>
                         </div>
                     </div>
                 </div>`;
@@ -107,6 +110,30 @@ search.addEventListener("input", function () {
     }
   });
 });
+
+
+// Edit Function Ninja Technique 
+function editNote(index) {
+
+  let notes = localStorage.getItem("notes");
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+  // setValue In Input Field 
+  addTitle.value=notesObj[index].text;
+  addTxt.value=notesObj[index].title;
+  notesObj.splice(index, 1);
+  //Clear serach box
+  let search = document.getElementById("findBt");
+  search.value="";
+  localStorage.setItem("notes", JSON.stringify(notesObj));
+  showNotes();
+  alert("Check 'Write Your Notes 🖋️' Section");
+}
+
+
 
 // copyright portion Disclaimer
 
