@@ -144,3 +144,7 @@ div.s_link a {
 footer {
   background-color: rgb(200, 200, 200);
 }
+
+.del-btn{
+  margin-left: 2rem;
+}
