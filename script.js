@@ -131,7 +131,8 @@ function editNote(index) {
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
   alert("Check 'Write Your Notes 🖋️' Section");
-}
+  alert("Don't Click  Remaining Edit Button ✅ to avoid deletion of Recent Edit's File's Content .");
+}.
 
 
 
