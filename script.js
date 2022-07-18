@@ -1,5 +1,3 @@
-
-
 // Tooltip Initialization
 
 var tooltipTriggerList = [].slice.call(
@@ -78,7 +76,6 @@ function showNotes() {
 
 // delete note function
 function deleteNote(index) {
-  
 
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -88,9 +85,10 @@ function deleteNote(index) {
   }
 
   notesObj.splice(index, 1);
+  //Clear serach box
   let search = document.getElementById("findBt");
-  // Clear Search input value
   search.value="";
+
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
 }
