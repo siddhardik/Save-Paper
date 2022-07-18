@@ -122,8 +122,8 @@ function editNote(index) {
     notesObj = JSON.parse(notes);
   }
   // setValue In Input Field 
-  addTitle.value=notesObj[index].text;
-  addTxt.value=notesObj[index].title;
+  addTitle.value=notesObj[index].title;
+  addTxt.value=notesObj[index].text;
   notesObj.splice(index, 1);
   //Clear serach box
   let search = document.getElementById("findBt");
