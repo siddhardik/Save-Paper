@@ -10,6 +10,7 @@
   position: sticky;
   top: 1px;
   z-index: +5;
+  /* height:20vh; */
   background-color: #162727;
 }
 b {
@@ -62,10 +63,42 @@ h1 {
   color: blue;
   font-family: "Times New Roman", Times, serif;
 }
-#border_note {
-  border: 9px solid rgb(119, 3, 134);
+.noteCard {
+  border: 1px solid rgb(37, 7, 146);
+  background-color: white;
+  width: 20rem;
   border-radius: 5px;
+  min-height: 250px;
+  max-height: 250px;
+
+  overflow:auto ;
+
 }
+
+.noteCard::-webkit-scrollbar{
+  width:10px;
+}
+
+.noteCard::-webkit-scrollbar-track{
+  border-radius: 10px;
+  background: whitesmoke;
+  box-shadow: inset 0 0 6px rgba(202, 23, 32, 0.3);
+}
+
+.noteCard::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: linear-gradient(red,yellow);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  
+}
+.line{
+  width:17rem;
+  background-color: white;
+  position: sticky;
+  bottom: 0px;
+}
+
+
 
 #title_style {
   color: rgb(9, 71, 185);
