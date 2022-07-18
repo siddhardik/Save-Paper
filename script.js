@@ -78,7 +78,7 @@ function showNotes() {
 
 // delete note function
 function deleteNote(index) {
-  //   console.log("I am deleting", index);
+  
 
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -88,6 +88,9 @@ function deleteNote(index) {
   }
 
   notesObj.splice(index, 1);
+  let search = document.getElementById("findBt");
+  // Clear Search input value
+  search.value="";
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
 }
@@ -104,7 +107,6 @@ search.addEventListener("input", function () {
     } else {
       element.style.display = "none";
     }
-    // console.log(cardTxt);
   });
 });
 
