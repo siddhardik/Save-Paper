@@ -1,4 +1,4 @@
-// console.log("Welcome to notes app. This is app.js");
+
 
 // Tooltip Initialization
 
@@ -11,7 +11,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 showNotes();
 
-// new note add in local storage
+// new notes will be saved in local storage
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function (e) {
   let addTxt = document.getElementById("addTxt");
@@ -45,7 +45,7 @@ addBtn.addEventListener("click", function (e) {
   }
 });
 
-// Function to show elements from localStorage
+// Showing notes
 function showNotes() {
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -56,13 +56,15 @@ function showNotes() {
   let html = "";
   notesObj.forEach(function (note_object, index) {
     html += ` 
-            <div class="noteCard my-2 mx-2 card" style="width: 15rem;" id="border_note ">
+            <div class="noteCard my-2 mx-2 card">
                     <div class="card-body" >
                         <u class="card-text" id="date_color"> ${note_object.date}</u>
                         <i class="card-text" id="time_color"> ${note_object.time}</i>
                         <h5 class="card-title" id="title_style">${note_object.title}</h5>
                         <p class="card-text"> ${note_object.text}</p>
-                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title=" will be deleted Permanently ">Delete Note</button>
+                        <div class="line">
+                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-danger del-btn" data-bs-toggle="tooltip" data-bs-placement="right" title=" will be deleted Permanently ">Delete Note</button>
+                        </div>
                     </div>
                 </div>`;
   });
@@ -74,7 +76,7 @@ function showNotes() {
   }
 }
 
-// Function to delete a note
+// delete note function
 function deleteNote(index) {
   //   console.log("I am deleting", index);
 
@@ -92,10 +94,8 @@ function deleteNote(index) {
 
 let search = document.getElementById("findBt");
 search.addEventListener("input", function () {
-  //When input Event is fired
 
   let inputVal = search.value.toLowerCase();
-  // console.log('Input event fired!', inputVal);
   let noteCards = document.getElementsByClassName("noteCard");
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("h5")[0].innerText;
@@ -108,7 +108,7 @@ search.addEventListener("input", function () {
   });
 });
 
-// copyright portion
+// copyright portion Disclaimer
 
 let copyright = document.getElementById("copy_right");
 copyright.innerHTML = `Copyright © ${new Date().getFullYear()} siddhardik`;
